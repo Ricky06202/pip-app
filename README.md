@@ -1,36 +1,66 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🌟 ¡Nuestra Página Web! 🌟
 
-## Getting Started
+## 🚀 Primera parte: ¡Impacto visual!
 
-First, run the development server:
+- 📸 Una imagen enorme que nos represente.
+- 🏷 El título de la organización.
+- 📝 Una descripción corta pero poderosa de quiénes somos.
+
+## 👥 Segunda parte: ¡Conoce al equipo!
+
+- 🙋‍♂️🙋‍♀ Una sección dedicada a cada integrante:
+  - Su foto.
+  - Su puesto o rol en el equipo.
+  - ¡Todos brillaremos como estrellas! ✨
+
+## ⏳ Tercera parte: ¡Nuestra línea de tiempo!
+
+- 📜 Mientras haces scroll, aparecerá una línea de tiempo con nuestros mejores recuerdos y memorias.
+- 🖼 Incluiremos:
+  - Capturas de pantalla (screenshots).
+  - Documentos importantes.
+  - Fechas clave que marcaron nuestro camino.
+- 🎉 ¡Será como un viaje en el tiempo! Cada detalle contará nuestra historia y cómo hemos crecido juntos.
+
+## 📋 Estructura del Proyecto
+
+El proyecto está organizado de la siguiente manera:
+
+- **app/**: Contiene las rutas de nuestra página web.
+- **modules/**: Aquí crearemos distintos módulos para cada característica de nuestra página.
+  - **shared/**: Módulo con características de uso común disponibles para todo el proyecto.
+    - **components/**: Componentes reutilizables.
+    - **constants/**: Constantes y valores fijos.
+    - **hooks/**: Hooks personalizados de React.
+    - **logic/**: Lógica de negocio.
+    - **services/**: Servicios para comunicación con APIs.
+    - **stores/**: Gestión de estado.
+    - **types/**: Definiciones de tipos.
+
+## 🛠️ Instalación y Ejecución
+
+### Instalación de dependencias
+
+```bash
+npm install
+# o
+yarn install
+# o
+pnpm install
+# o
+bun install # este es mi favorito
+```
+
+### Ejecutar el servidor de desarrollo
 
 ```bash
 npm run dev
-# or
+# o
 yarn dev
-# or
+# o
 pnpm dev
-# or
-bun dev
+# o
+bun dev # este es mi favorito
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+La aplicación estará disponible en http://localhost:3000.
