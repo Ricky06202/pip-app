@@ -21,18 +21,20 @@ model roles {
 
 model persons {
   id                 Int      @id @default(autoincrement())
-  photo              String
+  photo              String?
   fullName           String
   birthday           DateTime @db.Date
   email              String   @unique
-  alias              String   @unique
-  hobby              String
-  favoriteFood       String
-  favoriteDessert    String
-  favoriteColor      String
-  dreamAspiration    String
-  favoriteSerieMovie String
-  favoriteMusicGenre String
+  alias              String?  @unique
+  hobby              String?
+  favoriteFood       String?
+  favoriteDessert    String?
+  favoriteColor      String?
+  dreamAspiration    String?
+  favoriteSerieMovie String?
+  favoriteMusicGenre String?
+  favoriteVideoGame  String?
+  message            String?
   roleId             Int
   role               roles    @relation(fields: [roleId], references: [id])
 }
