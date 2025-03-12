@@ -28,8 +28,8 @@ await prisma.persons.createMany({
       favoriteColor: "Celeste y Blanco",
       dreamAspiration:
         "Ser Desarrollador FullStack y Llegar a ser GM en Ajedrez",
-      favoriteBook: "El Origen de los guardianes",
-      favoriteMusic: "Techno",
+      favoriteSerieMovie: "El Origen de los guardianes",
+      favoriteMusicGenre: "Techno",
       roleId: 4,
     },
     {
@@ -122,6 +122,50 @@ await prisma.events.create({
         {
           title: "File 2",
           description: "Description 2",
+          url: "https://example.com",
+        },
+      ],
+    },
+  },
+});
+
+await prisma.events.create({
+  data: {
+    title: "Event 2",
+    description: "Description 2",
+    date: new Date("2022-10-01"),
+    files: {
+      create: [
+        {
+          title: "File 3",
+          description: "Description 3",
+          url: "https://example.com",
+        },
+      ],
+    },
+  },
+});
+
+await prisma.events.create({
+  data: {
+    title: "Event 3",
+    description: "Description 3",
+    date: new Date("2022-10-02"),
+    files: {
+      create: [
+        {
+          title: "File 4",
+          description: "Description 4",
+          url: "https://example.com",
+        },
+        {
+          title: "File 5",
+          description: "Description 5",
+          url: "https://example.com",
+        },
+        {
+          title: "File 6",
+          description: "Description 6",
           url: "https://example.com",
         },
       ],
