@@ -36,13 +36,10 @@ export async function PUT(
 ) {
   const { id } = await params;
   const data = await request.json();
-  const photo = data.photo
-    ? await uploadFileToBlob(data.photo, data.fullName)
-    : undefined;
   const event = await prisma.persons.update({
     where: { id: Number(id) },
     data: {
-      photo: photo,
+      photo: data.photo,
       fullName: data.fullName,
       birthday: data.birthday,
       email: data.email,

@@ -11,13 +11,12 @@ export async function GET() {
 
 export async function POST(req: NextRequest) {
   const data = await req.json();
-  const url = await uploadFileToBlob(data.file, data.name);
   const files = await prisma.files.create({
     data: {
       eventId: data.eventId,
       title: data.name,
       description: data.description,
-      url: url,
+      url: data.url,
     },
   });
 

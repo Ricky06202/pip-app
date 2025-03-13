@@ -1,6 +1,5 @@
 import { prisma } from "@db/prisma";
 import { NextRequest, NextResponse } from "next/server";
-import { uploadFileToBlob } from "@shared/services/blob";
 
 export async function GET() {
   const persons = await prisma.persons.findMany({
@@ -14,10 +13,9 @@ export async function GET() {
 
 export async function POST(req: NextRequest) {
   const data = await req.json();
-  const photo = await uploadFileToBlob(data.photo, data.fullName);
   const persons = await prisma.persons.create({
     data: {
-      photo: photo,
+      photo: data.photo,
       fullName: data.fullName,
       birthday: data.birthday,
       email: data.email,
