@@ -1,5 +1,5 @@
 import { uploadFileToBlob } from "@/src/modules/shared/services/blob";
-import prisma from "@db/prisma";
+import { prisma } from "@db/prisma";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(
