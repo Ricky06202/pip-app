@@ -43,16 +43,16 @@ model persons {
 model events {
   id          Int      @id @default(autoincrement())
   title       String
-  description String
+  description String?
   date        DateTime @db.Date
   files       files[]
 }
 
 model files {
-  id          Int    @id @default(autoincrement())
+  id          Int     @id @default(autoincrement())
   title       String
-  description String
+  description String?
   url         String
-  eventId     Int
-  event       events @relation(fields: [eventId], references: [id])
+  eventId     Int?
+  event       events? @relation(fields: [eventId], references: [id])
 }
