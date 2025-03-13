@@ -1,4 +1,4 @@
-import { prisma } from "@db/prisma";
+import prisma from "@db/prisma";
 import { NextResponse } from "next/server";
 import { NextRequest } from "next/server";
 import { uploadFileToBlob } from "@shared/services/blob";
