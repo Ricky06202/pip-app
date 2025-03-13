@@ -3,9 +3,9 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(
   request: NextRequest,
-  context: { params: { id: string } }
+  { params }: { params: { id: string } }
 ) {
-  const { id } = context.params;
+  const { id } = params;
   const role = await prisma.roles.findUnique({
     where: { id: Number(id) },
   });
@@ -19,9 +19,9 @@ export async function GET(
 
 export async function DELETE(
   request: NextRequest,
-  context: { params: { id: string } }
+  { params }: { params: { id: string } }
 ) {
-  const { id } = context.params;
+  const { id } = params;
   const role = await prisma.roles.delete({
     where: { id: Number(id) },
   });
@@ -31,9 +31,9 @@ export async function DELETE(
 
 export async function PUT(
   request: NextRequest,
-  context: { params: { id: string } }
+  { params }: { params: { id: string } }
 ) {
-  const { id } = context.params;
+  const { id } = params;
   const data = await request.json();
   const role = await prisma.roles.update({
     where: { id: Number(id) },

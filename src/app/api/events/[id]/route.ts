@@ -3,9 +3,9 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(
   request: NextRequest,
-  context: { params: { id: string } }
+  { params }: { params: { id: string } }
 ) {
-  const { id } = context.params;
+  const { id } = params;
   const event = await prisma.events.findUnique({
     where: { id: Number(id) },
     include: { files: true },
@@ -20,9 +20,9 @@ export async function GET(
 
 export async function DELETE(
   request: NextRequest,
-  context: { params: { id: string } }
+  { params }: { params: { id: string } }
 ) {
-  const { id } = context.params;
+  const { id } = params;
   const event = await prisma.events.delete({
     where: { id: Number(id) },
   });
@@ -32,9 +32,9 @@ export async function DELETE(
 
 export async function PUT(
   request: NextRequest,
-  context: { params: { id: string } }
+  { params }: { params: { id: string } }
 ) {
-  const { id } = context.params;
+  const { id } = params;
   const data = await request.json();
   const event = await prisma.events.update({
     where: { id: Number(id) },
