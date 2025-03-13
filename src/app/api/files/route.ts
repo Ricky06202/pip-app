@@ -14,7 +14,9 @@ export async function POST(req: NextRequest) {
   const url = await uploadFileToBlob(data.file, data.name);
   const files = await prisma.files.create({
     data: {
+      eventId: data.eventId,
       title: data.name,
+      description: data.description,
       url: url,
     },
   });
