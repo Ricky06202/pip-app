@@ -1,22 +1,20 @@
 import { PrismaClient } from "@prisma/client";
 
-const prismaClientSingleton = () => {
-  return new PrismaClient({
+const globalForPrisma = global as unknown as { prisma: PrismaClient };
+
+export const prisma =
+  globalForPrisma.prisma ||
+  new PrismaClient({
     log: ["error"],
-    datasources: {
-      db: {
-        url: process.env.DATABASE_URL,
-      },
-    },
+    datasourceUrl: process.env.DATABASE_URL,
   });
-};
 
-declare global {
-  var prisma: undefined | ReturnType<typeof prismaClientSingleton>;
-}
+// Asegurarse de que en desarrollo usemos una única instancia
+if (process.env.NODE_ENV !== "production") globalForPrisma.prisma = prisma;
 
-const prisma = globalThis.prisma ?? prismaClientSingleton();
+// Manejar la limpieza de conexiones cuando la aplicación se cierra
+process.on("beforeExit", async () => {
+  await prisma.$disconnect();
+});
 
 export default prisma;
-
-if (process.env.NODE_ENV !== "production") globalThis.prisma = prisma;
