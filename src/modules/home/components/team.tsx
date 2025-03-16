@@ -2,16 +2,25 @@
 
 import {
   Email,
+  Facebook,
   GitHub,
   Instagram,
   LinkedIn,
   Twitter,
+  X,
+  YouTube,
 } from "@mui/icons-material";
-import { useState } from "react";
-import noImage from "@/public/no_image.jpeg";
+import noImage from "/public/no_image.jpeg";
 
 interface SocialLink {
-  platform: "linkedin" | "twitter" | "github" | "instagram" | "email";
+  platform:
+    | "email"
+    | "github"
+    | "facebook"
+    | "instagram"
+    | "twitter"
+    | "linkedin"
+    | "youtube";
   url: string;
 }
 
@@ -22,26 +31,57 @@ interface TeamMemberProps {
     role: string;
     image?: string;
     bio?: string;
-    socials?: SocialLink[];
     department?: string;
+    email?: string;
+    github?: string;
+    facebook?: string;
+    instagram?: string;
+    twitter?: string;
+    linkedin?: string;
+    youtube?: string;
   };
 }
 
 export function Team({ member }: TeamMemberProps) {
+  const socials = [];
+  if (member.email) {
+    socials.push({ platform: "email", url: `mailto:${member.email}` });
+  }
+  if (member.github) {
+    socials.push({ platform: "github", url: member.github });
+  }
+  if (member.facebook) {
+    socials.push({ platform: "facebook", url: member.facebook });
+  }
+  if (member.instagram) {
+    socials.push({ platform: "instagram", url: member.instagram });
+  }
+  if (member.twitter) {
+    socials.push({ platform: "twitter", url: member.twitter });
+  }
+  if (member.linkedin) {
+    socials.push({ platform: "linkedin", url: member.linkedin });
+  }
+  if (member.youtube) {
+    socials.push({ platform: "youtube", url: member.youtube });
+  }
   // Función para renderizar el icono correcto según la plataforma
   const renderSocialIcon = (platform: string) => {
     switch (platform) {
-      case "linkedin":
-        return <LinkedIn className="w-5 h-5" />;
-      case "twitter":
-        return <Twitter className="w-5 h-5" />;
-      case "github":
-        return <GitHub className="w-5 h-5" />;
-
-      case "instagram":
-        return <Instagram className="w-5 h-5" />;
       case "email":
         return <Email className="w-5 h-5" />;
+      case "github":
+        return <GitHub className="w-5 h-5" />;
+      case "facebook":
+        return <Facebook className="w-5 h-5" />;
+      case "instagram":
+        return <Instagram className="w-5 h-5" />;
+      case "twitter":
+        return <X className="w-5 h-5" />;
+      case "linkedin":
+        return <LinkedIn className="w-5 h-5" />;
+      case "youtube":
+        return <YouTube className="w-5 h-5" />;
       default:
         return null;
     }
@@ -83,16 +123,19 @@ export function Team({ member }: TeamMemberProps) {
         )}
 
         {/* Enlaces sociales */}
-        {member.socials && member.socials.length > 0 && (
+        {socials.length > 0 && (
           <div className="mt-3 flex space-x-3 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-            {member.socials.map((social, index) => (
+            {socials.map((social, index) => (
               <a
                 key={index}
                 href={social.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-500 hover:text-primary transition-colors"
+                className="text-gray-500 hover:text-primary transition-colors z-10"
                 aria-label={`${social.platform} de ${member.name}`}
+                title={
+                  social.platform === "email" ? social.url : social.platform
+                }
               >
                 {renderSocialIcon(social.platform)}
               </a>

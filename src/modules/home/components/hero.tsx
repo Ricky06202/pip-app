@@ -11,11 +11,12 @@ export function Hero({ title, description }: HeroProps) {
       {/* Imagen de fondo con overlay */}
       <div className="absolute inset-0 z-0">
         <img
-          src="/placeholder.svg?height=1080&width=1920"
+          // src="https://www.startpage.com/av/proxy-image?piurl=https%3A%2F%2Fi0.hdslb.com%2Fbfs%2Farticle%2Fd9ac8c8a6bdceb3bc665a6203125a3fe709f6b15.jpg&sp=1742153312Te5b9773a14ccbcd4919f47cd537d4aafb96a57aa4235d9d8aa9b5a19725c5a36"
+          src="https://w.wallhaven.cc/full/l8/wallhaven-l85ewq.jpg"
           alt="Imagen representativa de la organización"
-          className="object-cover"
+          className="object-cover w-full h-full"
         />
-        <div className="absolute inset-0 bg-black/50 z-10"></div>
+        <div className="absolute inset-0 bg-black/30 z-10"></div>
       </div>
 
       {/* Contenido */}

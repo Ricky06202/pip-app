@@ -2,8 +2,14 @@ export interface Person {
   id?: number;
   photo?: string;
   fullName: string;
-  birthday: Date;
-  email: string;
+  birthday: string;
+  email?: string;
+  github?: string;
+  facebook?: string;
+  instagram?: string;
+  twitter?: string;
+  linkedin?: string;
+  youtube?: string;
   alias?: string;
   hobby?: string;
   favoriteFood?: string;
@@ -14,6 +20,7 @@ export interface Person {
   favoriteMusicGenre?: string;
   favoriteVideoGame?: string;
   message?: string;
+  bio?: string;
   role?: Role | number;
 }
 
@@ -26,7 +33,7 @@ export interface Event {
   id?: number;
   title: string;
   description: string;
-  date: Date;
+  date: string;
   files?: Array<File | number>;
 }
 

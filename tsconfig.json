@@ -19,7 +19,6 @@
       }
     ],
     "paths": {
-      "@/*": ["./*"],
       "@shared/*": ["./src/modules/shared/*"],
       "@db/*": ["./src/modules/db/*"],
       "@docs/*": ["./src/modules/docs/*"],

@@ -561,7 +561,25 @@
             "format": "date-time"
           },
           "email": {
-            "type": "string"
+            "type": ["string", "null"]
+          },
+          "github": {
+            "type": ["string", "null"]
+          },
+          "facebook": {
+            "type": ["string", "null"]
+          },
+          "instagram": {
+            "type": ["string", "null"]
+          },
+          "twitter": {
+            "type": ["string", "null"]
+          },
+          "linkedin": {
+            "type": ["string", "null"]
+          },
+          "youtube": {
+            "type": ["string", "null"]
           },
           "alias": {
             "type": ["string", "null"]
@@ -591,6 +609,9 @@
             "type": ["string", "null"]
           },
           "message": {
+            "type": ["string", "null"]
+          },
+          "bio": {
             "type": ["string", "null"]
           },
           "roleId": {

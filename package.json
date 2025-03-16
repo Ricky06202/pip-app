@@ -5,10 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "prisma generate && next build",
     "start": "next start",
     "lint": "next lint",
-    "postinstall": "prisma generate",
     "prisma:generate": "prisma generate --schema=./packages/db/schema.prisma"
   },
   "prisma": {
@@ -26,7 +25,8 @@
     "react": "^19.0.0",
     "react-awesome-reveal": "^4.3.1",
     "react-dom": "^19.0.0",
-    "swagger-ui-react": "^5.20.1"
+    "swagger-ui-react": "^5.20.1",
+    "zustand": "^5.0.3"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

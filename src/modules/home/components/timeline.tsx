@@ -3,7 +3,7 @@
 import { useRef, useEffect, useState } from "react";
 import { Fade } from "react-awesome-reveal";
 
-interface TimelineEvent {
+export interface TimelineEvent {
   id: number;
   date: string; // formato YYYY-MM-DD
   title: string;

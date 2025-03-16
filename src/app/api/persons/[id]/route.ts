@@ -1,4 +1,3 @@
-import { uploadFileToBlob } from "@/src/modules/shared/services/blob";
 import { prisma } from "@db/prisma";
 import { NextRequest, NextResponse } from "next/server";
 
@@ -43,6 +42,11 @@ export async function PUT(
       fullName: data.fullName,
       birthday: data.birthday,
       email: data.email,
+      facebook: data.facebook,
+      instagram: data.instagram,
+      twitter: data.twitter,
+      linkedin: data.linkedin,
+      youtube: data.youtube,
       alias: data.alias,
       hobby: data.hobby,
       favoriteFood: data.favoriteFood,
@@ -53,6 +57,7 @@ export async function PUT(
       favoriteMusicGenre: data.favoriteMusicGenre,
       favoriteVideoGame: data.favoriteVideoGame,
       message: data.message,
+      bio: data.bio,
       roleId: data.roleId,
     },
   });
