@@ -1,1 +1,63 @@
 @import "tailwindcss";
+
+:root {
+  --foreground-rgb: rgb(0, 0, 0);
+  --background-start-rgb: rgb(214, 219, 220);
+  --background-end-rgb: rgb(255, 255, 255);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: rgb(255, 255, 255);
+    --background-start-rgb: rgb(0, 0, 0);
+    --background-end-rgb: rgb(0, 0, 0);
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: white;
+}
+
+@theme {
+  --color-background: rgb(255, 255, 255);
+  --color-foreground: rgb(0, 0, 0);
+  --color-card: rgb(255, 255, 255);
+  --color-card-foreground: rgb(0, 0, 0);
+  --color-popover: rgb(255, 255, 255);
+  --color-popover-foreground: rgb(0, 0, 0);
+  --color-primary: rgb(102, 157, 246);
+  --color-primary-foreground: rgb(255, 255, 255);
+  --color-secondary: rgb(76, 175, 80);
+  --color-secondary-foreground: rgb(255, 255, 255);
+  --color-muted: rgb(76, 175, 80);
+  --color-muted-foreground: rgb(255, 255, 255);
+  --color-accent: rgb(76, 175, 80);
+  --color-accent-foreground: rgb(255, 255, 255);
+  --color-destructive: rgb(229, 62, 62);
+  --color-destructive-foreground: rgb(255, 255, 255);
+  --color-border: rgb(214, 219, 220);
+  --color-input: rgb(214, 219, 220);
+  --color-ring: rgb(102, 157, 246);
+  --radius-ring: 0.5rem;
+
+  --color-dark-background: rgb(54, 54, 54);
+  --color-dark-foreground: rgb(255, 255, 255);
+  --color-dark-card: rgb(54, 54, 54);
+  --color-dark-card-foreground: rgb(255, 255, 255);
+  --color-dark-popover: rgb(54, 54, 54);
+  --color-dark-popover-foreground: rgb(255, 255, 255);
+  --color-dark-primary: rgb(102, 157, 246);
+  --color-dark-primary-foreground: rgb(255, 255, 255);
+  --color-dark-secondary: rgb(76, 175, 80);
+  --color-dark-secondary-foreground: rgb(255, 255, 255);
+  --color-dark-muted: rgb(76, 175, 80);
+  --color-dark-muted-foreground: rgb(255, 255, 255);
+  --color-dark-accent: rgb(76, 175, 80);
+  --color-dark-accent-foreground: rgb(255, 255, 255);
+  --color-dark-destructive: rgb(229, 62, 62);
+  --color-dark-destructive-foreground: rgb(255, 255, 255);
+  --color-dark-border: rgb(76, 175, 80);
+  --color-dark-input: rgb(76, 175, 80);
+  --color-dark-ring: rgb(76, 175, 80);
+}

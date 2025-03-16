@@ -1,4 +1,4 @@
-interface Person {
+export interface Person {
   id?: number;
   photo?: string;
   fullName: string;
@@ -17,12 +17,12 @@ interface Person {
   role?: Role | number;
 }
 
-interface Role {
+export interface Role {
   id?: number;
   role: string;
 }
 
-interface Event {
+export interface Event {
   id?: number;
   title: string;
   description: string;
@@ -30,7 +30,7 @@ interface Event {
   files?: Array<File | number>;
 }
 
-interface File {
+export interface File {
   id?: number;
   title: string;
   description?: string;
