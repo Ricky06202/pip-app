@@ -1,57 +1,72 @@
 "use client";
-import axios from "axios";
-import { useState } from "react";
+import { Fade } from "react-awesome-reveal";
+import { Hero } from "@home/components/hero";
+import { Team } from "@home/components/team";
+import { Timeline, TimelineEvent } from "@home/components/timeline";
+import { usePersons } from "@shared/hooks/usePersons";
+import { Person, Role } from "@shared/types/APIObjectsTypes";
+import { useEvents } from "@shared/hooks/useEvents";
+import { Event } from "@shared/types/APIObjectsTypes";
 
 export default function Home() {
-  const [selectedFile, setSelectedFile] = useState<File | null>(null);
-  const [previewUrl, setPreviewUrl] = useState("");
-  const [fileUrl, setFileUrl] = useState("");
-
-  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSelectedFile(event.target.files?.[0] as File | null);
-    const reader = new FileReader();
-    reader.onloadend = () => {
-      setPreviewUrl(reader.result as string);
-    };
-    reader.readAsDataURL(event.target.files?.[0] as File);
-  };
-
-  const handleUpload = async () => {
-    const formData = new FormData();
-    formData.append("file", selectedFile as File);
-    const response = await axios.post(
-      "/api/blob?name=" + selectedFile?.name,
-      formData,
-      {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      }
-    );
-    setFileUrl(response.data);
-  };
+  // Datos de ejemplo para los miembros del equipo
+  const teamMembers = usePersons();
+  const eventsList = useEvents();
+  const timelineEvents: TimelineEvent[] = eventsList.map((event: Event) => ({
+    id: event.id!,
+    date: event.date,
+    title: event.title,
+    description: event.description,
+    image: undefined,
+  }));
 
   return (
-    <div className="flex flex-col items-center p-4">
-      <input
-        type="file"
-        onChange={handleFileChange}
-        className="mb-4 border-2 p-2"
+    <main className="flex min-h-screen flex-col items-center">
+      {/* Hero Section */}
+      <Hero
+        title="Partido Internacional Paulista"
+        description="Unidos por un mismo objetivo, creando un futuro mejor!"
       />
-      {previewUrl && (
-        <img src={previewUrl} alt="preview" className="mb-4 max-w-[300px]" />
-      )}
-      <button
-        onClick={handleUpload}
-        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-      >
-        Subir archivo
-      </button>
-      {fileUrl && (
-        <p className="mt-4 text-green-500">
-          La url del archivo es: <a href={fileUrl}>{fileUrl}</a>
-        </p>
-      )}
-    </div>
+
+      {/* Team Section */}
+      <section id="equipo" className="w-full py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <h2 className="text-4xl font-bold text-center mb-16">
+            Nuestro Equipo
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {teamMembers.map((member: Person) => (
+              <Fade direction="up" triggerOnce key={member.id}>
+                <Team
+                  member={{
+                    id: member.id!,
+                    name: member.fullName,
+                    role: (member.role as Role).role,
+                    image: member.photo,
+                    email: member.email,
+                    github: member.github,
+                    facebook: member.facebook,
+                    instagram: member.instagram,
+                    twitter: member.twitter,
+                    linkedin: member.linkedin,
+                    youtube: member.youtube,
+                  }}
+                />
+              </Fade>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Timeline Section */}
+      <section id="historia" className="w-full py-20 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <h2 className="text-4xl font-bold text-center mb-16">
+            Nuestra Historia
+          </h2>
+          {timelineEvents.length > 0 && <Timeline events={timelineEvents} />}
+        </div>
+      </section>
+    </main>
   );
 }
