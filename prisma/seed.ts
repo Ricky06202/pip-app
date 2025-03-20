@@ -36,15 +36,24 @@ await prisma.persons.createMany({
     {
       photo:
         "https://tf6vqc9e5h8pmy4g.public.blob.vercel-storage.com/Yeisury%20Perfil.jpg",
-      fullName: "Yeisury Y. Coronel S.",
+      fullName: "Yeisury Yarelis Coronel Saldaña",
       birthday: new Date("2003-08-07"),
-      email: "coronelyeisury5@gmail.com",
-      alias: "Yeisu",
-      hobby: "Ver Instagram, YouTube, joder a Paul y la natación",
+      email: "ycoronels@icloud.com",
+      instagram: "https://www.instagram.com/yeisu_07",
+      facebook: "https://www.facebook.com/yeisury.coronel.5",
+      alias: "Yeisu, Sury, Yary",
+      hobby: "Natación, pasear, ir al gym",
       favoriteFood: "Pasta",
       favoriteDessert: "Dulce de chocolate",
-      favoriteColor: "Rosado y Verde",
-      dreamAspiration: "Graduarme, ser millonaria y tener un marido fiel",
+      favoriteColor: "Verde y rosado",
+      dreamAspiration:
+        "Ser millonaria, tener mi marca se ropa, casarme con un hombre amoroso fiel, y cristiano, y lograr ser alguien con mucho conocimientos académicos",
+      favoriteSerieMovie:
+        "Besos kitty, rey eterno monarca, aterrizaje de emergencia en tu corazón",
+      favoriteMusicGenre: "Pop, reguetón, bachata, baladas",
+      favoriteVideoGame: "Fornite",
+      message: "ARRIBA PAULISTAAAA!!! Siempre unidos",
+      bio: "Soy una persona que siempre ve lo positivo de la vida, aunque esté pasando por cosas difíciles intento llevarlo de la mejor manera, me encanta estar con mis amigos ellos hacen que mi vida sea más divertida, fue lo mejor que me pudo pasar en la etapa universitaria. Y amo fugarme de las clases para seguir en el desorden, y que mi risa se escuche desde la entrada de la universidad, ellos no lo saben, pero hacen que mi etapa universitaria sea especial y siempre los recordaré, y ojalá esta amistad sea para siempre aún que cada uno seamos personas tan dintintas",
       roleId: 3,
     },
     {
@@ -88,6 +97,7 @@ Ser parte del Partido Internacional Paulista es un privilegio que valoro enormem
       fullName: "Aracelly Aurora Acosta De León",
       birthday: new Date("2006-04-21"),
       email: "elly.oceans19@gmail.com",
+      instagram: "https://www.instagram.com/aurorittaaa_/",
       alias: "Chelly, Ara, tetona",
       hobby:
         "Ver k-dramas, leer, escuchar música, ver tik tok, jugar fut, joder, jugar videojuegos, tomarle fotos al cielo, caminar por allí, ir al gym (recién)",
