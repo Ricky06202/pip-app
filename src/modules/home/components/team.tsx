@@ -1,5 +1,3 @@
-"use client";
-
 import noImage from "@public/no_image.jpeg";
 import { SocialIcon } from "@shared/components/socialIcon";
 import { getSocialLinks } from "@shared/logic/getSocialLinks";
