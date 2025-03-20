@@ -8,6 +8,9 @@ export async function GET(
   const { id } = await params;
   const person = await prisma.persons.findUnique({
     where: { id: Number(id) },
+    include: {
+      role: true,
+    },
   });
 
   if (!person) {

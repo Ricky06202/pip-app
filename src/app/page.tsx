@@ -4,9 +4,10 @@ import { Hero } from "@home/components/hero";
 import { Team } from "@home/components/team";
 import { Timeline, TimelineEvent } from "@home/components/timeline";
 import { usePersons } from "@shared/hooks/usePersons";
-import { Person, Role } from "@shared/types/APIObjectsTypes";
+import { Person } from "@shared/types/APIObjectsTypes";
 import { useEvents } from "@shared/hooks/useEvents";
 import { Event } from "@shared/types/APIObjectsTypes";
+import { parseMember } from "@shared/logic/parseMember";
 
 export default function Home() {
   // Datos de ejemplo para los miembros del equipo
@@ -37,21 +38,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {teamMembers.map((member: Person) => (
               <Fade direction="up" triggerOnce key={member.id}>
-                <Team
-                  member={{
-                    id: member.id!,
-                    name: member.fullName,
-                    role: (member.role as Role).role,
-                    image: member.photo,
-                    email: member.email,
-                    github: member.github,
-                    facebook: member.facebook,
-                    instagram: member.instagram,
-                    twitter: member.twitter,
-                    linkedin: member.linkedin,
-                    youtube: member.youtube,
-                  }}
-                />
+                <Team {...parseMember(member)} />
               </Fade>
             ))}
           </div>

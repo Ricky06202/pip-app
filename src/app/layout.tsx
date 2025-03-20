@@ -5,6 +5,9 @@ import Footer from "@shared/components/footer";
 export const metadata: Metadata = {
   title: "PIP - Partido Internacional Paulista",
   description: "Partido político de la provincia de Paulista, Chiriqui, Panamá",
+  icons: {
+    icon: "/logo_pip.png",
+  },
 };
 
 export default function RootLayout({
