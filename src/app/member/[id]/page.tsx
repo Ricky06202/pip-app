@@ -91,7 +91,7 @@ export default async function MemberPage({
                     Fecha de nacimiento
                   </span>
                   <p className="font-medium">
-                    {new Date(person.birthday).toLocaleDateString()}
+                    {new Date(person.birthday).toLocaleDateString("es-MX")}
                   </p>
                 </div>
               </div>
