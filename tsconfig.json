@@ -22,7 +22,8 @@
       "@shared/*": ["./src/modules/shared/*"],
       "@db/*": ["./src/modules/db/*"],
       "@docs/*": ["./src/modules/docs/*"],
-      "@home/*": ["./src/modules/home/*"]
+      "@home/*": ["./src/modules/home/*"],
+      "@public/*": ["./public/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
