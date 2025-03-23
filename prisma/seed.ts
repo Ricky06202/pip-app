@@ -57,6 +57,8 @@ await prisma.persons.createMany({
       roleId: 3,
     },
     {
+      photo:
+        "https://tf6vqc9e5h8pmy4g.public.blob.vercel-storage.com/Fredy%20Perfil.jpg",
       fullName: "Fredy O. Villarreal DG",
       birthday: new Date("2002-06-10"),
       email: "fredyhayabusa09@gmail.com",
@@ -197,6 +199,45 @@ await prisma.events.create({
         {
           title: "File 6",
           description: "Description 6",
+          url: "https://example.com",
+        },
+      ],
+    },
+  },
+});
+
+await prisma.events.create({
+  data: {
+    title: "Event 4",
+    description: "Description 4",
+    date: new Date("2025-10-03"),
+    files: {
+      create: [
+        {
+          title: "File 7",
+          description: "Description 7",
+          url: "https://example.com",
+        },
+        {
+          title: "File 8",
+          description: "Description 8",
+          url: "https://example.com",
+        },
+      ],
+    },
+  },
+});
+
+await prisma.events.create({
+  data: {
+    title: "Event 5",
+    description: "Description 5",
+    date: new Date("2025-10-04"),
+    files: {
+      create: [
+        {
+          title: "File 9",
+          description: "Description 9",
           url: "https://example.com",
         },
       ],
